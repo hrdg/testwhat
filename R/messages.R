@@ -160,8 +160,8 @@ build_message.typed <- function(det) {
 
 build_message.fundef <- function(det) {
   switch(det$case,
-         defined = sprintf("您是否定义了函数 `%s()`?", det$name),
-         correcttype = sprintf("您是否确定 `%s` 是一个函数?", det$name),
+         defined = sprintf("&#24744;&#26159;&#21542;&#23450;&#20041;&#20102;&#20989;&#25968; `%s()`?", det$name),
+         correcttype = sprintf("&#24744;&#26159;&#21542;&#30830;&#23450; `%s` &#26159;&#19968;&#20010;&#20989;&#25968;?", det$name),
          correct = sprintf("Did you correctly define the function `%s()`?", det$name),
          arguments = "Did you specify the correct number of arguments?",
          coded = sprintf("The system couldn't find the function definition of `%s()` in your code.", det$name),
