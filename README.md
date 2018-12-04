@@ -17,7 +17,7 @@ For details, questions and suggestions, [contact us](mailto:content-engineering@
 
 ```R
 library("remotes")
-install_github("datacamp/testwhat")
+install_github("hrdg/testwhat")
 ```
 
 ## Demo
