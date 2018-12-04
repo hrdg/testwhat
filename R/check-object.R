@@ -182,8 +182,7 @@ check_equal_helper <- function(state, incorrect_msg, eq_condition, append, eq_fu
   return(state)
 }
 
-# Deprecated test functions
-
+#' @export
 test_object <- function(name, eq_condition = "equivalent",
                         eval = TRUE,
                         undefined_msg = NULL, incorrect_msg = NULL) {
