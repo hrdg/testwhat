@@ -88,6 +88,19 @@ export(test_exercise)
 export(test_what)
 export(testwhat_learnr)
 export(tw)
+
+#############old sct
+export(test_student_typed)
+export(test_object)
+export(test_function)
+export(test_error)
+export(test_function_result)
+export(test_correct)
+export(test_function_definition)
+export(test_library_function)
+export(test_output_contains)
+#############old sct
+
 importFrom(R6,R6Class)
 importFrom(evaluate,evaluate)
 importFrom(magrittr,"%>%")
@@ -102,3 +115,5 @@ importFrom(utils,getParseData)
 importFrom(utils,getParseText)
 importFrom(utils,methods)
 importFrom(utils,tail)
+
+
