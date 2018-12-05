@@ -35,7 +35,7 @@ build_message.default <- function(det) {
 build_message.object <- function(det) {
   switch(det$case,
          defined = sprintf("Did you define the variable `%s` without errors?", det$name),
-         correct = sprintf("The contents of the variable `%s` aren't correct.", det$name),
+         correct = sprintf("&#21464;&#37327;`%s`&#30340;&#20540;&#19981;&#27491;&#30830;.", det$name),
          equal = build_diff(sol = det$solution, stud = det$student,
                             eq_condition = det$eq_condition,
                             id = "it"),
