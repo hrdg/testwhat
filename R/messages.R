@@ -34,8 +34,8 @@ build_message.default <- function(det) {
 
 build_message.object <- function(det) {
   switch(det$case,
-         defined = sprintf("Did you define the variable `%s` without errors?", det$name),
-         correct = sprintf("&#21464;&#37327;`%s`&#30340;&#20540;&#19981;&#27491;&#30830;.", det$name),
+         defined = sprintf("您是否正确的定义了变量 `%s` ?", det$name),
+         correct = sprintf("变量`%s`的值不正确.", det$name),
          equal = build_diff(sol = det$solution, stud = det$student,
                             eq_condition = det$eq_condition,
                             id = "it"),
@@ -61,8 +61,8 @@ build_message.element <- function(det) {
 
 build_message.function <- function(det) {
   switch(det$case,
-         called = sprintf("Have you called `%s()`%s?", det$name, get_times(det$index)),
-         correct = sprintf("Check your call of `%s()`.", det$name),
+         called = sprintf("您是否调用了 `%s()`%s?", det$name, get_times(det$index)),
+         correct = sprintf("检查函数 `%s()`的调用.", det$name),
          result_runs = "Running it again threw an error.",
          result_correct = "Running it again doesn't give the correct result.",
          result_equal = build_diff(sol = det$solution, stud = det$student,
@@ -160,11 +160,11 @@ build_message.typed <- function(det) {
 
 build_message.fundef <- function(det) {
   switch(det$case,
-         defined = sprintf("&#24744;&#26159;&#21542;&#23450;&#20041;&#20102;&#20989;&#25968; `%s()`?", det$name),
-         correcttype = sprintf("&#24744;&#26159;&#21542;&#30830;&#23450; `%s` &#26159;&#19968;&#20010;&#20989;&#25968;?", det$name),
-         correct = sprintf("Did you correctly define the function `%s()`?", det$name),
-         arguments = "Did you specify the correct number of arguments?",
-         coded = sprintf("The system couldn't find the function definition of `%s()` in your code.", det$name),
+         defined = sprintf("您是否定义了函数 `%s()`?", det$name),
+         correcttype = sprintf("您是否确定`%s`是一个函数?", det$name),
+         correct = sprintf("您是否正确地定义了函数 `%s()`?", det$name),
+         arguments = "您是否正确指定了参数的个数?",
+         coded = sprintf("系统不能在你的代码中找到函数 `%s()` 的定义.", det$name),
          NULL)
 }
 
