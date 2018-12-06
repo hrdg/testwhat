@@ -16,7 +16,7 @@ For details, questions and suggestions, [contact us](mailto:content-engineering@
 ## Installation
 
 ```R
-library("remotes")
+library("devtools")
 install_github("hrdg/testwhat")
 ```
 
