@@ -19,5 +19,4 @@ success_msg <- function(msg, praise = FALSE) {
     msg <- paste(praise::praise(), msg)
   }
   tw$set(success_msg = capitalize(trim(msg)))
-  print(msg)
 }
