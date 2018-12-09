@@ -101,6 +101,8 @@ export(test_library_function)
 export(test_output_contains)
 export(test_data_frame)
 export(test_expression_result)
+export(test_function_v2)
+
 #############old sct
 
 importFrom(R6,R6Class)
