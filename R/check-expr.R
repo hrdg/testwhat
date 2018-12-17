@@ -136,8 +136,8 @@ run_expr_helper <- function(state, expr, expr_str, error_msg, append, case = c("
   return(expreval_state)
 }
 
-# Deprecated functions
 
+#' @export
 test_expression_result <- function(expr, 
                                    eq_condition = "equivalent",
                                    incorrect_msg = NULL) {
