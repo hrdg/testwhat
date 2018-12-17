@@ -227,8 +227,7 @@ stringify <- function(arg) {
   return(x)
 }
 
-## Deprecated functions
-
+#' @export
 test_function <- function(name,
                           args = NULL,
                           index = 1,
@@ -266,4 +265,5 @@ test_function <- function(name,
   }
 }
 
+#' @export
 test_function_v2 <- test_function
