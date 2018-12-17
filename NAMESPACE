@@ -103,6 +103,7 @@ export(test_data_frame)
 export(test_expression_result)
 export(test_function_v2)
 export(test_predefined_objects)
+export(test_for_loop)
 #############old sct
 
 importFrom(R6,R6Class)
