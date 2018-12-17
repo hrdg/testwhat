@@ -98,8 +98,10 @@ export(test_function_result)
 export(test_correct)
 export(test_function_definition)
 export(test_library_function)
-export(test_output_contains)
 export(test_data_frame)
+export(test_output_contains)
+
+
 export(test_expression_result)
 export(test_function_v2)
 export(test_predefined_objects)
