@@ -193,7 +193,7 @@ build_message.typed <- function(det) {
 
 build_message.fundef <- function(det) {
   switch(det$case,
-         defined = sprintf("您是否定义了函数Did you define the function `%s()`?", det$name),
+         defined = sprintf("Did you define the function `%s()`?", det$name),
          correcttype = sprintf("Are you sure that `%s` is a function?", det$name),
          correct = sprintf("Did you correctly define the function `%s()`?", det$name),
          arguments = "Did you specify the correct number of arguments?",
