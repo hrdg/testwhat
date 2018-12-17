@@ -197,6 +197,7 @@ test_object <- function(name, eq_condition = "equivalent",
   }
 }
 
+#' @export
 test_data_frame <- function(name, columns = NULL, 
                             eq_condition = "equivalent",
                             undefined_msg = NULL,
