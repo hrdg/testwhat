@@ -98,7 +98,7 @@ export(test_function_result)
 export(test_correct)
 export(test_function_definition)
 export(test_library_function)
-export(test_data_frame)
+importFrom(test_data_frame)
 export(test_output_contains)
 
 
