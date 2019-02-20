@@ -107,6 +107,7 @@ export(test_predefined_objects)
 export(test_for_loop)
 export(test_while_loop)
 export(test_or)
+export(test_if_else)
 #############old sct
 
 importFrom(R6,R6Class)
