@@ -34,8 +34,8 @@ build_message.default <- function(det) {
 
 build_message.object <- function(det) {
   switch(det$case,
-         defined = sprintf("您是否正确的定义了变量 `%s` ?", det$name),
-         correct = sprintf("变量`%s`的值不正确.", det$name),
+         defined = sprintf("您是否正确的定义了变量 `%s`？", det$name),
+         correct = sprintf("变量`%s`的值不正确。", det$name),
          equal = build_diff(sol = det$solution, stud = det$student,
                             eq_condition = det$eq_condition,
                             id = "it"),
@@ -44,8 +44,8 @@ build_message.object <- function(det) {
 
 # build_message.object <- function(det) {
 #   switch(det$case,
-#          defined = sprintf("Did you define the variable `%s` without errors?", det$name),
-#          correct = sprintf("The contents of the variable `%s` aren't correct.", det$name),
+#          defined = sprintf("您是否正确的定义了变量`%s`？", det$name),
+#          correct = sprintf("变量`%s`的值不正确。", det$name),
 #          equal = build_diff(sol = det$solution, stud = det$student,
 #                             eq_condition = det$eq_condition,
 #                             id = "it"),
@@ -54,16 +54,16 @@ build_message.object <- function(det) {
 
 build_message.column <- function(det) {
   switch(det$case,
-         defined = sprintf("Does it contain a column `%s`?", det$name),
-         correct = sprintf("The column `%s` doesn't seem to be correct.", det$name),
+         defined = sprintf("是否包含列`%s`？", det$name),
+         correct = sprintf("列`%s`似乎不正确。", det$name),
          equal = NULL,
          NULL)
 }
 
 build_message.element <- function(det) {
   switch(det$case,
-         defined = sprintf("Does it contain an element `%s`?", det$name),
-         correct = sprintf("The element `%s` doesn't seem to be correct.", det$name),
+         defined = sprintf("是否包含元素`%s`？", det$name),
+         correct = sprintf("列`%s`似乎不正确。", det$name),
          equal = NULL,
          NULL)
 }
@@ -71,10 +71,10 @@ build_message.element <- function(det) {
 
 build_message.function <- function(det) {
   switch(det$case,
-         called = sprintf("您是否调用了 `%s()`%s?", det$name, get_times(det$index)),
-         correct = sprintf("检查函数 `%s()`的调用.", det$name),
-         result_runs = "Running it again threw an error.",
-         result_correct = "Running it again doesn't give the correct result.",
+         called = sprintf("您是否调用了`%s()`%s?", det$name, get_times(det$index)),
+         correct = sprintf("检查函数`%s()`的调用.", det$name),
+         result_runs = "再次运行会引发错误。",
+         result_correct = "再次运行不会给出正确的结果。",
          result_equal = build_diff(sol = det$solution, stud = det$student,
                                    eq_condition = det$eq_condition,
                                    id = "the result"),
@@ -83,10 +83,10 @@ build_message.function <- function(det) {
 
 # build_message.function <- function(det) {
 #   switch(det$case,
-#          called = sprintf("Have you called `%s()`%s?", det$name, get_times(det$index)),
-#          correct = sprintf("Check your call of `%s()`.", det$name),
-#          result_runs = "Running it again threw an error.",
-#          result_correct = "Running it again doesn't give the correct result.",
+#          called = sprintf("您有访问`%s()`%s吗？", det$name, get_times(det$index)),
+#          correct = sprintf("检查一下是否有访问`%s()`.", det$name),
+#          result_runs = "再次运行会引发错误。",
+#          result_correct = "再次运行不会给出正确的结果。",
 #          result_equal = build_diff(sol = det$solution, stud = det$student,
 #                                    eq_condition = det$eq_condition,
 #                                    id = "the result"),
@@ -96,10 +96,10 @@ build_message.function <- function(det) {
 
 build_message.operator <- function(det) {
   switch(det$case,
-         called = sprintf("Have you used the `%s` operator%s?", det$name, get_times(det$index)),
-         correct = sprintf("Have you correctly used the `%s` operator?", det$name),
-         result_runs = "Running the operation again threw an error.",
-         result_correct = "Running the operation again doesn't give the correct result.",
+         called = sprintf("你是否使用`%s`操作%s？", det$name, get_times(det$index)),
+         correct = sprintf("你有没有正确使用`%s`运算符？", det$name),
+         result_runs = "再次运行该操作引发了错误。",
+         result_correct = "再次运行该操作不会给出正确的结果。",
          result_equal = build_diff(sol = det$solution, stud = det$student,
                                    eq_condition = det$eq_condition,
                                    id = "the result"),
@@ -110,16 +110,16 @@ build_message.argument <- function(det) {
   msg <- NULL
   if (det$case == "specified") {
     if (det$name == "...") {
-      msg <- sprintf("Did you specify any arguments that are matched to `...`?", det$name)
+      msg <- sprintf("你有没有指定任何与`...`匹配的参数？?", det$name)
     } else {
-      msg <- sprintf("Did you specify the argument `%s`?", det$name)
+      msg <- sprintf("你有没有指定参数`%s`？", det$name)
     }
   }
   if (det$case == "correct") {
     if (det$name == "...") {
-      msg <- "Did you correctly specify the arguments that are matched to `...`?"
+      msg <- "你是否正确指定了与`...`匹配的参数？"
     } else {
-      msg <- sprintf("Did you correctly specify the argument `%s`?", det$name)
+      msg <- sprintf("你是否正确指定了参数`%s`？", det$name)
     }
   }
   if (det$case == "equal") {
@@ -146,8 +146,8 @@ build_message.while <- function(det) {
 
 build_message_control <- function(det, type) {
   switch(det$case,
-         defined = sprintf("Are you sure you coded %s %s statement%s?", get_num(det$index), type, ifelse(det$index > 1, "s", "")),
-         correct = sprintf("Check the %s %s statement.", get_ord(det$index), type),
+         defined = sprintf("你确定编码%s %s 语句%s？", get_num(det$index), type, ifelse(det$index > 1, "s", "")),
+         correct = sprintf("检查%s %s 语句。", get_ord(det$index), type),
          NULL)
 }
 
@@ -165,17 +165,17 @@ build_message.ifexpression <- function(det) {
 
 build_message.elseexpression <- function(det) {
   switch(det$case,
-         defined = "The else part is missing.",
-         correct = "Check the else part.",
+         defined = "其他部分缺失了。",
+         correct = "检查其他部分。",
          NULL)
 }
 
 build_message.typed <- function(det) {
   if (det$type == "typed") {
     if (det$fixed) {
-      msg <- sprintf("Have you typed %s%s?", collapse_args(det$regex, conn = " or "), get_times(det$times))
+      msg <- sprintf("你是否有键入%s%s?", collapse_args(det$regex, conn = " or "), get_times(det$times))
     } else {
-      msg <- sprintf("The system wanted to find the pattern %s%s but didn't.", collapse_args(det$regex, conn = " or "), get_times(det$times))  
+      msg <- sprintf("系统想要找到模式%s%s，但没有。", collapse_args(det$regex, conn = " or "), get_times(det$times))  
     }
   }
   return(msg)
@@ -187,35 +187,35 @@ build_message.fundef <- function(det) {
          correcttype = sprintf("您是否确定`%s`是一个函数?", det$name),
          correct = sprintf("您是否正确地定义了函数 `%s()`?", det$name),
          arguments = "您是否正确指定了参数的个数?",
-         coded = sprintf("系统不能在你的代码中找到函数 `%s()` 的定义.", det$name),
+         coded = sprintf("系统不能在你的代码中找到函数 `%s()` 的定义。", det$name),
          NULL)
 }
 
 # build_message.fundef <- function(det) {
 #   switch(det$case,
-#          defined = sprintf("Did you define the function `%s()`?", det$name),
-#          correcttype = sprintf("Are you sure that `%s` is a function?", det$name),
-#          correct = sprintf("Did you correctly define the function `%s()`?", det$name),
-#          arguments = "Did you specify the correct number of arguments?",
-#          coded = sprintf("The system couldn't find the function definition of `%s()` in your code.", det$name),
+#          defined = sprintf("您定义了函数`%s()`吗？", det$name),
+#          correcttype = sprintf("您确定`%s`是一个函数吗？", det$name),
+#          correct = sprintf("您是否正确定义了函数`%s()`？", det$name),
+#          arguments = "您是否正确指定了参数的个数？",
+#          coded = sprintf("系统不能在你的代码中找到函数 `%s()` 的定义。", det$name),
 #          NULL)
 # }
 
 build_message.expr <- function(det) {
   switch(det$case, 
-         result_runs = sprintf("Running `%s` generated an error.", det$expr_str),
-         result_correct = sprintf("Running `%s` didn't give the correct result.", det$expr_str),
+         result_runs = sprintf("运行`%s`会出错。", det$expr_str),
+         result_correct = sprintf("运行`%s`没有给出正确的结果。", det$expr_str),
          result_equal = build_diff(sol = det$solution, stud = det$student,
                                    eq_condition = det$eq_condition,
                                    id = "the result"),
-         output_runs = sprintf("Running `%s` generated an error.", det$expr_str),
-         output_correct = sprintf("Running `%s` didn't generate the correct output.", det$expr_str),
-         output_equal = sprintf("Expected %s, but got %s",
+         output_runs = sprintf("运行`%s`会出错。", det$expr_str),
+         output_correct = sprintf("运行`%s`没有给出正确的结果。", det$expr_str),
+         output_equal = sprintf("应该是%s，不是%s",
                                 ifelse(length(det$solution) == 0, "no output", sprintf("`%s`", det$solution)),
                                 ifelse(length(det$student) == 0, "no output", sprintf("`%s`", det$student))),
-         error_fails = sprintf("Running `%s` didn't generate an error, but it should.", det$expr_str),
-         error_correct = sprintf("Running `%s` didn't generate the correct error.", det$expr_str),
-         error_equal = sprintf("Expected the error `%s`, but instead got the error `%s`",
+         error_fails = sprintf("运行`%s`没有生成错误，但应该要出错的。", det$expr_str),
+         error_correct = sprintf("运行`%s`没有生成正确的错误。", det$expr_str),
+         error_equal = sprintf("预期错误是`%s`，但得到错误`%s`",
                                det$solution, det$student),
          NULL)
 }
@@ -224,9 +224,9 @@ build_message.file <- function(det) {
   msg <- NULL
   if (det$case == "available") {
     if (det$folder == ".") {
-      msg <- sprintf("The file `%s` does not appear to be in your working directory.", det$file)
+      msg <- sprintf("文件`%s`似乎不在您的工作目录中。", det$file)
     } else {
-      msg <- sprintf("The file `%s` does not appear to be inside the folder `%s` in your working directory.", det$file, det$folder)
+      msg <- sprintf("文件`%s`似乎不在您工作目录的文件夹`%s`中。", det$file, det$folder)
     }
   }
   return(msg)
@@ -234,8 +234,8 @@ build_message.file <- function(det) {
 
 build_message.output <- function(det) {
   switch(det$case, 
-         regex = "The output that your code generated doesn't contain the pattern we're looking for.",
-         expr = sprintf("Did your code produce the same output as `%s`?", det$expr),
+         regex = "代码生成的输出不是我们正在寻找的模式。",
+         expr = sprintf("您的代码是否与`%s'产生相同的输出？", det$expr),
          NULL)
 }
 
@@ -243,29 +243,29 @@ build_message.output <- function(det) {
 
 build_message.markdown_header <- function(det) {
   switch(det$case,
-         defined = sprintf("Have you included %s level %i header%s in your code?", get_num(det$index), det$level, if (det$index > 1) "s" else ""),
-         correct = sprintf("Check the %s level %i header.", get_ord(det$index), det$level)
+         defined = sprintf("你的代码中包含%s级别%i标题%s吗？", get_num(det$index), det$level, if (det$index > 1) "s" else ""),
+         correct = sprintf("检查%s级别%i标题。", get_ord(det$index), det$level)
   )
 }
 
 build_message.markdown_title <- function(det) {
   switch(det$case,
-         defined = sprintf("The system couldn't find a title."),
-         correct = sprintf("Check the title.")
+         defined = sprintf("系统找不到标题。"),
+         correct = sprintf("检查标题。")
   )
 }
 
 build_message.markdown_chunk <- function(det) {
   switch(det$case,
-         defined = sprintf("Have you included %s code chunk%s?", get_num(det$index), if (det$index > 1) "s" else ""),
-         correct = sprintf("Have a look at the %s code chunk.", get_ord(det$index))
+         defined = sprintf("你有%s代码块%s吗？", get_num(det$index), if (det$index > 1) "s" else ""),
+         correct = sprintf("查看%s代码块。", get_ord(det$index))
   )
 }
 
 build_message.markdown_chunk_option <- function(det) {
   switch(det$case,
-         defined = sprintf("Have you specified the chunk option `%s`?", det$name),
-         correct = sprintf("The chunk option `%s` isn't correct.", det$name),
+         defined = sprintf("你有没有指定块选项`%s`？", det$name),
+         correct = sprintf("块选项`%s`不正确。", det$name),
          equal = build_diff(sol = det$solution, stud = det$student,
                             eq_condition = "equal", id = "it")
   )
@@ -273,15 +273,15 @@ build_message.markdown_chunk_option <- function(det) {
 
 build_message.markdown_yaml <- function(det) {
   switch(det$case,
-         parsing_error = sprintf("Something went wrong when parsing the YAML header. Are you sure you indented everything properly?"),
-         correct = "Check your YAML header."
+         parsing_error = sprintf("解析YAML标头时出错了。你确定你都缩进了吗？"),
+         correct = "检查您的YAML标题"
   )
 }
 
 build_message.markdown_yaml_option <- function(det) {
   switch(det$case,
-         defined = sprintf("Have you specified the YAML header option %s?", yaml_option_desc(det$name)),
-         correct = sprintf("The option %s is not correct", yaml_option_desc(det$name)),
+         defined = sprintf("您是否指定了YAML标题选项%s？", yaml_option_desc(det$name)),
+         correct = sprintf("选项%s不正确。", yaml_option_desc(det$name)),
          equal = build_diff(sol = det$solution, stud = det$student, eq_condition = "equal", id = "it")
   )
 }
