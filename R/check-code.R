@@ -61,7 +61,7 @@ check_code <- function(state, regex,
   return(state)
 }
 
-# deprecated test_student_typed
+#' @export
 test_student_typed <- function(strings,
                                fixed = TRUE,
                                times = 1,
